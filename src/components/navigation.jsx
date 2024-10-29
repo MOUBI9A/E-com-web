@@ -19,9 +19,9 @@ export const Navigation = (props) => {
         return;
       }
       const scrollTop = window.pageYOffset || document.documentElement.scrollTop;
-      if (scrollTop > lastScrollTop && hasCollapsedClass) {
+      if (scrollTop > lastScrollTop && hasCollapsedClass && !navbarCollapse.classList.contains("in")) {
         // Scroll down
-        // navbar.classList.add("hidden");
+
         navbar.style.backgroundColor = "transparent";
         navbar.style.boxShadow = "none";
         title.style.display = "none";
@@ -55,11 +55,13 @@ export const Navigation = (props) => {
     const hasCollapsedClass = btn.classList.contains("collapsed");
     btn.addEventListener("click", ()=>{
       if (hasCollapsedClass) {
+        // Scroll down
         navbar.style.backgroundColor = "white";
         navbar.style.boxShadow = "0 0 10px rgba(0, 0, 0, 0.15)";
         title.style.display = "block";
       }
       else {
+        // Scroll down
         navbar.style.backgroundColor = "transparent";
         navbar.style.boxShadow = "none";
         title.style.display = "none";
