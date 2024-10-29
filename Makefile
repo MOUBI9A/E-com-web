@@ -17,11 +17,18 @@ help: ## Show available targets
 	@echo "Available targets:"
 	@echo "  install - Install project dependencies"
 	@echo "  start   - Run the project"
+	@echo "  push  - Commit changes to git"
+	@echo "  clean   - Clean the project"
 	@echo "  help    - Show available targets"
-	@echo "  commit  - Commit changes to git"
 
-commit: ## Commit changes to git
+push: ## Commit changes to git
 	@read -p "Enter commit message: " msg; \
 	git add .; \
 	git commit -m "$$msg"; \
 	git push
+
+clean: ## Clean the project
+	@echo "Cleaning the project..."
+	rm -rf node_modules
+	rm -rf dist
+	rm -rf build
